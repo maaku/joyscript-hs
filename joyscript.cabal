@@ -69,9 +69,9 @@ library
   default-language:    Haskell2010
 
 
-executable joy
+executable joyce
   -- .hs or .lhs file containing the Main module.
-  main-is:             joy.hs
+  main-is:             joyce.hs
 
   -- Modules included in this executable, other than Main.
   -- other-modules:
@@ -80,7 +80,7 @@ executable joy
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
-  build-depends:       base ^>=4.12.0.0
+  build-depends:       base ^>=4.12.0.0, optparse-applicative ^>=0.14.3.0
 
   -- Directories containing source files.
   hs-source-dirs:      bootstrap
