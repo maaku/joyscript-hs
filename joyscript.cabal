@@ -80,7 +80,8 @@ executable joyce
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
-  build-depends:       base ^>=4.12.0.0, optparse-applicative ^>=0.14.3.0
+  build-depends:       base ^>=4.12.0.0
+                     , optparse-applicative ^>=0.14.3.0
 
   -- Directories containing source files.
   hs-source-dirs:      bootstrap
@@ -100,7 +101,8 @@ executable runjoy
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
-  build-depends:       base ^>=4.12.0.0, optparse-applicative ^>=0.14.3.0
+  build-depends:       base ^>=4.12.0.0
+                     , optparse-applicative ^>=0.14.3.0
 
   -- Directories containing source files.
   hs-source-dirs:      bootstrap
