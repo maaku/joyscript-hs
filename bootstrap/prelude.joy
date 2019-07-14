@@ -1,0 +1,26 @@
+macro line_comment_syntax = "#" Any* eol@(NL|EOF) -> eol.
+# Now we have comments.
+
+# From now on, any time a "#" symbol is encountered, it will be
+# removed along with any other tokens between it and the next newline
+# or end-of-file.
+
+# Note however that we said the "#" *symbol*.  If there is a symbol
+# character immediately adjacent to either side of the hash it is part
+# of a multi-character symbol and does NOT trigger the lineComment
+# macro.  This lets us do other things with "#" such as define a
+# syntax for multi-line comments:
+macro block_comment_syntax = "{#" (Any|NL) "#}" -> .
+{# Now we have multi-line
+   block comments #}
+
+# This does have some unfortunate side effects however.  Notably, the
+# standard UNIX "hash-bang" file header, #!/usr/bin/env runjoy isn't a
+# comment.  It's the symbol "#!/" followed by the word "usr" followed
+# by "/", etc.  So let's make another rule for that guy:
+macro hash_bang_header = "#!"@(line=1) Any* eol@(NL|EOF) -> eol.
+
+# And while we're talking about file headers, let's also remove the
+# Unicode byte-order-mark, to handle cases where some brain-dead
+# editor insists on inserting one into a UTF-8 document.
+macro utf_byte_order_mark = "\xef\xbb\xbf"@(line=1,pos=0) -> .
