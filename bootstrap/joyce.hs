@@ -13,10 +13,10 @@ data JoyceOpts = JoyceOpts
 
 parseOpts :: Parser JoyceOpts
 parseOpts = JoyceOpts
-         <$> switch
-            ( long "compile"
-           <> short 'c'
-           <> help "Generate object file, but do not link." )
+  <$> switch
+     ( long "compile"
+    <> short 'c'
+    <> help "Generate object file, but do not link." )
 
 main :: IO ()
 main = engine =<< execParser opts
