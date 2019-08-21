@@ -74,7 +74,7 @@ executable joyce
   main-is:             joyce.hs
 
   -- Modules included in this executable, other than Main.
-  -- other-modules:
+  other-modules:       Joy.Options
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
